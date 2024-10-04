@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Verificador de Spam</title>
+</head>
+
+<body>
+    <video autoplay muted loop class="background-video">
+        <source src="/static/img/evi.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+    </video>
+
+    <form method="POST" action="/predict">
+        <h1>Verificador de Spam</h1>
+        <textarea name="mensaje" rows="4" cols="50" required placeholder="Escribe aquí tu mensaje..."></textarea><br>
+        <button class="button-85" role="button" type="submit" value="Verificar">Verificar</button>
+        {% if resultado %}
+        <p>El mensaje "{{ mensaje }}" es: {{ resultado }}</p>
+        {% endif %}
+    </form>
+
+</body>
+
+</html>
